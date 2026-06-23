@@ -1,0 +1,56 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "get_project_images",
+            "description": "share the photos to the user",
+            "parameters": {"type": "object", "properties": {}}
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_project_videos",
+            "description": "Whenever the user explicitly asks for, agrees to, or expresses interest in watching project videos, luxury walkthroughs, cinematic site reels, or looking at a real-time project setup, you must immediately trigger the relevant video tool.Tool Name to Call: get_project_videos.Response Guidelines: * Do not mention the name of the tool to the user.Keep the text short and premium, focusing on delivering a luxury visual experience.Always ask for the user's reaction or feedback after sending the video.",
+            "parameters": {"type": "object", "properties": {}}
+        }
+    },
+
+    {
+    "type": "function",
+    "function": {
+        "name": "get_budget",
+        "description": "Whenever the user inquires about project costs, overall pricing, property budget, rate per square foot, raw material estimation, or approximate financial investment, you must immediately trigger the relevant budget tool.Tool Name to Call: get_budget (with the extracted bhk_type parameter if available).",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "bhk_type": {
+                    "type": "string",
+                    "description": "Automatically parse and extract the numerical value whenever the user mentions terms like '1 BHK', '2bhk', 'three BHK', or 'luxury 4-bedroom plan",
+                "required": ["bhk_type"]
+                }
+            }
+            
+        }
+    }
+   },
+ {
+    "type": "function",
+    "function": {
+        "name": "book_project_appointment",
+        "description": "Immediately after the client specifies their preferred date, time, and mode (Online or Physical meeting) for the free consultation, and you have successfully booked the slot using the appointment tool, you must invoke this tool to seamlessly alert the owner with the finalized booking details.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "year": {"type": "integer", "description": "Year jaise 2026"},
+                "month": {"type": "integer", "description": "Month number 1-12"},
+                "day": {"type": "integer", "description": "Day number 1-31"},
+                "hours": {"type": "integer", "description": "24-hour format me ghanta (0-23)"},
+                "minutes": {"type": "integer", "description": "Minutes (0-59)"},
+                "type":{"type": "string", "description": "meeting mil kr krni hai ya consultation over the phone chahiye"}
+            },
+            "required": ["year", "month", "day", "hours", "minutes","type"]
+        }
+    }
+ }
+]
